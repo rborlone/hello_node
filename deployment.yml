@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mi-deploy
+  labels:
+    app: hello-node
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello-node
+  template:
+    metadata:
+      labels:
+        app: hello-node
+    spec:
+      containers:
+        - name: hello
+          image: hello-node:latest
+          imagePullPolicy: Never
+          ports:
+            - name: web
+              containerPort: 8080
+              protocol: TCP
