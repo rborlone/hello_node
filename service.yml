@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mi-servicio
+  name: my-service-back
 spec:
   selector:
-    app: mi-etiqueta
+    app: my-back-app
   type: LoadBalancer
   ports:
     - protocol: TCP
-      port: 8080
-      targetPort: 8080
+      port: 80
+      targetPort: 80

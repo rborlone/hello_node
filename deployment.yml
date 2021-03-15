@@ -1,24 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mi-deploy
+  name: my-deploy-back
   labels:
-    app: hello-node
+    app: my-back-app
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: hello-node
+      app: my-back-app
   template:
     metadata:
       labels:
-        app: hello-node
+        app: my-back-app
     spec:
       containers:
-        - name: hello
-          image: hello-node:latest
-          imagePullPolicy: Never
+        - name: node-back
+          image: demorbe.azurecr.io/backdemo:latest
           ports:
             - name: web
-              containerPort: 8080
+              containerPort: 80
               protocol: TCP
